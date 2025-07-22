@@ -41,7 +41,7 @@ function fetchSuggestions(query) {
 }
 // Debounce the fetchSuggestions function to limit API calls
 
-const debouncedFetchSuggestions = debounce(fetchSuggestions, 2000);
+const debouncedFetchSuggestions = debounce(fetchSuggestions, 500);
 
 inputField.addEventListener("input", (event) => {
   const query = event.target.value;
@@ -53,3 +53,12 @@ inputField.addEventListener("input", (event) => {
 // The debounce function can be reused for other functions that need similar behavior.
 // You can adjust the delay as needed for different scenarios.
 // This is a simple debounce implementation that can be used in various scenarios to optimize performance.
+
+const button = document.getElementById("button");
+
+button.addEventListener(
+  "click",
+  debounce(() => {
+    console.log("Button clicked!");
+  }, 500)
+);
